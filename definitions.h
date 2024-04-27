@@ -1,5 +1,4 @@
 /* Macros and data structures for registers and other values */
-/* Macros */
 /* Color registers */
 #define CHARACTERLUMINANCE (*((int *) 709))
 #define BACKGROUNDCOLOR (*((int *) 710))

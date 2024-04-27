@@ -1,11 +1,7 @@
 #include <stdio.h>
-#include "registers.h"
-
-
+#include "definitions.h"
 
 /* Function Declarations */
-void setcolor(int *reg, color_codes hue, int lum);
-
 
 int main(void) {
   /* Set screen colors */
@@ -14,17 +10,11 @@ int main(void) {
   SETCOLOR(BORDERCOLOR, DEEPBLUEGREEN, 0);
 
   /* turn on/off cursor */
-  POKE(CURSORINHIBIT, 0);
+  POKE(CURSORINHIBIT, 0); /* 0 = on, 1 = off */
 
   printf("Hello, world!\n");
   
 
-  while (1) {};
+  while (1) {}; /* Endless loop, press F9 in emulator to quit */
   return 0;
-}
-
-/* Function Definitions */
-void setcolor(int *reg, color_codes hue, int lum) {
-  *reg = hue*16 + lum;
-  return;
 }
