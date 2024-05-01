@@ -1,13 +1,23 @@
 /* Macros and data structures for registers and other values */
-/* Color registers */
-#define CHARACTERLUMINANCE (*((int *) 709))
-#define BACKGROUNDCOLOR (*((int *) 710))
-#define BORDERCOLOR (*((int *) 711))
-#define CURSORINHIBIT (*((int *) 752))
+/* Address translation to dereferenced integer pointer */
+#define REGISTER(x) (((int *) x))
+#define REGISTERINC(x, i) (((int *) x+i))
+
+/* Addresses */
+#define LMARGN REGISTER(82)
+#define RMARGN REGISTER(83)
+#define CHARACTERLUMINANCE REGISTER(709)
+#define BACKGROUNDCOLOR REGISTER(710)
+#define BORDERCOLOR REGISTER(711)
+#define CURSORINHIBIT REGISTER(752)
+#define CHARACTERSETCONTROL REGISTER(756)
+#define FREERAMSTART REGISTER(32768)
+#define CHARACTERSETSTART REGISTER(57344)
 
 /* Functions */
-#define POKE(reg, value) reg = value
-#define SETCOLOR(reg, hue, lum) POKE(reg, hue*16 + lum)
+#define POKE(reg, value) *reg = value
+#define SETCOLOR(reg, hue, lum) POKE(reg, (hue*16 + lum))
+#define LOADCUSTOMCHARACTERSET() POKE(CHARACTERSETCONTROL, 128)
 
 
 /* Color enum */
