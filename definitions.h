@@ -1,7 +1,7 @@
 /* Macros and data structures for registers and other values */
 /* Address translation to dereferenced integer pointer */
 #define REGISTER(x) (((int *) x))
-#define REGISTERINC(x, i) (((int *) x+i))
+#define REGISTERINC(x, i) (((int *) (x+i)))
 
 /* Addresses */
 #define LMARGN REGISTER(82)
@@ -11,8 +11,9 @@
 #define BORDERCOLOR REGISTER(711)
 #define CURSORINHIBIT REGISTER(752)
 #define CHARACTERSETCONTROL REGISTER(756)
-#define FREERAMSTART REGISTER(32768)
 #define CHARACTERSETSTART REGISTER(57344)
+
+#define RAMSTARTADDR 32768
 
 /* Functions */
 #define POKE(reg, value) *reg = value
