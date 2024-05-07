@@ -1,3 +1,6 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
 /* Macros and data structures for registers and other values */
 /* Address translation to dereferenced integer pointer */
 #define REGISTER(x) (((int *) x))
@@ -18,7 +21,7 @@
 /* Functions */
 #define POKE(reg, value) *reg = value
 #define SETCOLOR(reg, hue, lum) POKE(reg, (hue*16 + lum))
-#define LOADCUSTOMCHARACTERSET() POKE(CHARACTERSETCONTROL, 128)
+#define ACTIVATECUSTOMCHARACTERS() POKE(CHARACTERSETCONTROL, 128)
 
 
 /* Color enum */
@@ -40,3 +43,6 @@ typedef enum color_codes {
   ORANGEGREEN = 14,
   ORANGE = 15
 } color_codes;
+
+
+#endif /* DEFINITIONS_H */

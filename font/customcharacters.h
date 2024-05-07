@@ -1,0 +1,17 @@
+#include "definitions.h"
+#ifndef CUSTOMCHARACTERS_H
+#define CUSTOMCHARACTERS_H
+void customcharacters(void) {
+  ACTIVATECUSTOMCHARACTERS();
+  /* 512 registry POKEs to define 128 new characters */
+  POKE(REGISTER(32768), 0x1e00);
+  POKE(REGISTER(32770), 0x2424);
+  POKE(REGISTER(32772), 0x243c);
+  POKE(REGISTER(32774), 0x6424);
+  POKE(REGISTER(32776), 0x3e00);
+  POKE(REGISTER(32778), 0x2212);
+  POKE(REGISTER(32780), 0x243e);
+  POKE(REGISTER(32782), 0xf844);
+  return;
+}
+#endif /* CUSTOMCHARACTERS_H */
