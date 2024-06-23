@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "definitions.h"
+#include "atari800.h"
 
 /* Function Declarations */
 void load_custom_character_set(void);

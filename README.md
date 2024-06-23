@@ -18,9 +18,18 @@ Emulate your program on an Atari800: `atari800 main`. Press F9 in emulator windo
 `run.sh` is a helper script to perform these steps.
 
 ## Font creation
-Open `font/font_gimp_project.xcf` in GIMP. Draw new 8-pixel by 8-pixel character based on current layer (i.e. A, B, etc.) in black and white. Export layer as PBM with ASCII encoding. Save file same as layer name (i.e. `font/033_A.pbm`).
+Font creation is optional, as all fonts are already precompiled into the C header file, this is offered if you would like to change the fonts.
 
-The BASH script `font/create_pbm_to_C.sh` will read the plain-text PBM files and create a C header file to load the binary data into RAM after launching the Atari emulator.
+Open `font/fonts.xcf` in GIMP. Draw new 8-pixel by 8-pixel character based on current layer name (i.e. A, B, etc.) in black and white. Do not change layer sequence.
+
+Each layer must be exported to separate ASCII .PBM files. This is automated with the `export-layers.scm` GIMP Script-Fu procedure, available at https://github.com/jachallbound/gimp-export-layers-scriptfu/.
+
+The BASH script `font/generateheader.sh` will read the plain-text PBM files and create a C header file to load the binary data into RAM after launching the Atari emulator.
+
+Run program with `run.sh 1` to activate the font creation process.
 
 ## Resources
 Recommended programming guide: https://archive.org/details/Programmers_s_Reference_Guide_for_the_Atari_400_800_Computers.
+
+### Provided Fonts
+Provided fonts are based on ZX Spectrum game, War-lord (aka Wartorn) https://worldofspectrum.org/archive/software/text-adventures/war-lord-.

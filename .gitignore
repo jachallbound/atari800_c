@@ -1,4 +1,6 @@
 main
 main.o
 *.pdf
+**.png
+**.pbm
 .vscode

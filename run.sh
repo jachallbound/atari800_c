@@ -1,10 +1,14 @@
 rm main main.o
 
-# Build fonts
-cd font
-./create_pbm_to_C.sh
-cd ..
+# Build fonts, optional
+if [ $1 -eq 1 ]
+then
+  cd font
+  ./generateheader.sh
+  cd ..
+fi
 
+# Build program and emulate
 cl65 -t atari main.c &&\
 rm main.o &&\
 atari800 -atari main
