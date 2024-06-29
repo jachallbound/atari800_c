@@ -1,5 +1,5 @@
 # atari800_c
-Simple C projects for the Atari 800.
+Write programs for the Atari 800 in plain C, as opposed to BASIC or assembly.
 
 ## Requirements
 Suggested requirements for compilation targeting the Atari's 6502 processor and emulation in linux follow.

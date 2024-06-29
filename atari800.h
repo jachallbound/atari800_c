@@ -6,7 +6,7 @@
 #define REGISTER(x) (((int *) x))
 #define REGISTERINC(x, i) (((int *) (x+i)))
 
-/* Addresses */
+/* Addresses, converted to REGISTER */
 #define LMARGN REGISTER(82)
 #define RMARGN REGISTER(83)
 #define CHARACTERLUMINANCE REGISTER(709)
@@ -14,15 +14,17 @@
 #define BORDERCOLOR REGISTER(711)
 #define CURSORINHIBIT REGISTER(752)
 #define CHARACTERSETCONTROL REGISTER(756)
-#define CHARACTERSETSTART REGISTER(57344)
+#define AUDIOFREQUENCY REGISTER(0xD200)
+#define AUDIOCONTROL REGISTER (0xD201)
+#define CHARACTERSETSTART REGISTER(57344) /* unused */
 
+/* Addresses, kept as integers */
 #define RAMSTARTADDR 32768
 
 /* Functions */
 #define POKE(reg, value) *reg = value
 #define SETCOLOR(reg, hue, lum) POKE(reg, (hue*16 + lum))
 #define ACTIVATECUSTOMCHARACTERS() POKE(CHARACTERSETCONTROL, 128)
-
 
 /* Color enum */
 typedef enum color_codes {
@@ -43,6 +45,5 @@ typedef enum color_codes {
   ORANGEGREEN = 14,
   ORANGE = 15
 } color_codes;
-
 
 #endif /* DEFINITIONS_H */
